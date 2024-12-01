@@ -1,4 +1,5 @@
 import sys
+import time
 
 
 def part1(rside, lside):
@@ -8,6 +9,7 @@ def part1(rside, lside):
     for i in range(len(rside)):
         total += abs(rside[i] - lside[i])
     return total
+
 
 def part2(rside, lside):
     total = 0
@@ -19,15 +21,17 @@ def part2(rside, lside):
         count = 0
         for j in lside:
             if i == j:
-                count +=1 
+                count += 1
         seen[i] = i * count
         total += seen[i]
     return total
 
+
 if __name__ == "__main__":
+    start_time = time.time()
     args = sys.argv[1:]
     if len(args) != 1:
-        print("not file provided!")
+        print("Provide the data file!")
         sys.exit(1)
 
     data_path = args[0]
@@ -42,4 +46,5 @@ if __name__ == "__main__":
             lside.append(int(parts[1]))
 
     # print("part1 sol: ", part1(rside, lside))
-    # print("part2 sol: ", part2(rside, lside))
+    print("part2 sol: ", part2(rside, lside))
+    print("exec took: ", time.time()-start_time)

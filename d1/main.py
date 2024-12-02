@@ -1,5 +1,6 @@
 import sys
 import time
+from collections import Counter
 
 
 def part1(rside, lside):
@@ -45,6 +46,6 @@ if __name__ == "__main__":
             rside.append(int(parts[0]))
             lside.append(int(parts[1]))
 
-    # print("part1 sol: ", part1(rside, lside))
-    print("part2 sol: ", part2(rside, lside))
-    print("exec took: ", time.time()-start_time)
+    print("part1 sol: ", part1(rside, lside))
+    # print("part2 sol: ", part2(rside, lside))
+    # print("exec took: ", time.time()-start_time)

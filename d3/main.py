@@ -6,6 +6,7 @@ def part1(lines):
     total = 0
     enable = True
     for line in lines:
+        # finds = re.findall(r"mul\((\d+),(\d+)\)|(do\(\))|(don't\(\))", line)
         section = ""
         for i in range(len(line)):
             if line[i:i+7] == "don't()":

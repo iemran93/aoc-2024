@@ -4,10 +4,15 @@ import re
 
 def part1(lines):
     total = 0
+    enable = True
     for line in lines:
         section = ""
-        for i, chr in enumerate(line):
-            if chr == "m":
+        for i in range(len(line)):
+            if line[i:i+7] == "don't()":
+                enable = False
+            elif line[i:i+4] == "do()":
+                enable = True
+            if line[i:i+3] == "mul" and enable:
                 section = line[i:i+12]
             # check if this section can have this substring mul(x,y), x and y are integers of 1 to 3 digits max
             # if yes, return the product of x and y
@@ -37,5 +42,4 @@ if __name__ == "__main__":
     with open(data_path, "r") as file:
         for line in file:
             lines.append(line)
-    print("part1 sol: ", part1(lines))
-    # print("part2 sol: ", part2(reports))
+    print("part2 sol: ", part1(lines))
